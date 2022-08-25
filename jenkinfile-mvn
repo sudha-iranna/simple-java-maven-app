@@ -9,5 +9,11 @@ pipeline {
 	          sh 'mvn clean package'
 	     }
       }
+    stage('archive') {
+    steps {
+      archiveArtifacts artifacts: '*.jar', followSymlinks: false
+    }
+  }
+  
    }
 }
